@@ -11,7 +11,7 @@ public:
 	StrBlob(initializer_list<string> il)
 		:data(make_shared< vector<string> >(il))
 	{}
-	size_type size() const { return data->size(); }
+	int size() const { return data->size(); }
 	bool empty() const { return data->empty(); }
 	//add or delete
 	void push_back(const string &t) { data->push_back(t); }
@@ -22,9 +22,9 @@ public:
 
 private:
 	shared_ptr<vector<string>> data;
-	void check(size_type i, const string &msg) const;
+	void check(int i, const string &msg) const;
 };
-void StrBlob::check(size_type i, const string &msg) const
+void StrBlob::check(int i, const string &msg) const
 {
 	if (i >= data->size())
 	{
@@ -39,15 +39,13 @@ void StrBlob::pop_back()
 string& StrBlob::front()
 {
 	check(0, "front on empty StrBlob");
-	data->front();
+	return data->front();
 }
 string& StrBlob::back()
 {
 	check(0, "back on empty StrBlob");
-	data->back();
+	return data->back();
 }
-
-
 
 int main()
 {
