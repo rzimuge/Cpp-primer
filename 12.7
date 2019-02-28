@@ -1,0 +1,41 @@
+#include <iostream>  
+#include <string>  
+#include <vector>
+
+using namespace std;
+//返回一个动态分配的vector 
+
+shared_ptr<vector<int>> vectorr_i()
+{
+
+
+	shared_ptr<vector<int>> p = make_shared< vector<int> >();
+	return p;
+}
+
+//给vector赋值
+void vector_j(shared_ptr<vector<int>> p)
+{
+	int INT;
+	while (cin >> INT)
+	{
+		p->push_back(INT);
+	}
+}
+
+//打印vector的值
+void vector_k(shared_ptr<vector<int>> p)
+{
+	for (int i = 0; i < p->size(); i++)
+	{
+		cout << (*p)[i] << endl;
+	}
+}
+
+int main()
+{
+	shared_ptr<vector<int>> p = vectorr_i();
+	vector_j(p);
+	vector_k(p);
+	return 0;
+}
